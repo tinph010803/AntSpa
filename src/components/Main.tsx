@@ -1,6 +1,8 @@
 import { FaSearch } from "react-icons/fa";
+import { useState } from "react"
 
 const Main = () => {
+    const [showSearch, setShowSearch] = useState(false);
 
     return (
         <main className="w-full">
@@ -101,9 +103,26 @@ const Main = () => {
                         >
                             LIÊN HỆ
                         </a>
-                        <button className="text-white hover:text-yellow-100 transition-colors">
-                            <FaSearch className="w-5 h-5" />
-                        </button>
+                        <div className="relative">
+                            <button
+                                onClick={() => setShowSearch((prev) => !prev)}
+                                className="text-white hover:text-yellow-100 transition-colors cursor-pointer"
+                            >
+                                <FaSearch className="w-5 h-5" />
+                            </button>
+
+                            {showSearch && (
+                                <div className="absolute right-0 mt-2 flex items-center bg-white rounded shadow px-2 py-1 z-50">
+                                    <input
+                                        type="text"
+                                        placeholder="Tìm kiếm sản phẩm..."
+                                        className="text-sm px-2 py-1 w-48 text-gray-700 placeholder-gray-400 focus:outline-none"
+                                    />
+                                    <FaSearch className="text-gray-500 ml-2 w-4 h-4" />
+                                </div>
+                            )}
+                        </div>
+
                     </div>
 
                     {/* Mobile Menu Button */}

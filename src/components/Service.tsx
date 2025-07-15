@@ -88,8 +88,7 @@ const Service = () => {
             {/* Service Description Card */}
             <div className="bg-white rounded-lg p-6 shadow-lg mx-4">
               <p className="text-gray-600 text-sm leading-relaxed">
-                Giảm béo 1 lần duy nhất không phẫu thuật. Duy trì số đo cơ thể tốt nhất, khiến quý khách không bị tăng
-                số đo. Công nghệ được FDA Hoa Kỳ chứng nhận.
+                Giảm béo 1 lần duy nhất không phẫu thuật. Duy trì số đo cơ thể tốt nhất, Công nghệ được FDA Hoa Kỳ chứng nhận.
               </p>
             </div>
           </div>
