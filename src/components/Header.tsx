@@ -35,11 +35,15 @@ const Header = () => {
             </div>
 
             {/* Cart */}
-            <button className="flex items-center gap-1 bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 py-1 rounded font-medium transition-colors">
+            <Link
+              to="/cart"
+              className="flex items-center gap-1 bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 py-1 rounded font-medium transition-colors"
+            >
               <FaShoppingCart className="w-4 h-4" />
-              <span className="hidden sm:inline">Giỏ hàng</span>
+              <span>Giỏ hàng</span>
               <span className="bg-white text-orange-500 rounded-full px-1.5 py-0.5 text-xs font-bold min-w-[20px] text-center">0</span>
-            </button>
+            </Link>
+
           </div>
         </div>
       </div>
@@ -64,7 +68,7 @@ const Header = () => {
 
             {/* Dropdown: Sản phẩm */}
             <div className="relative group">
-              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center">
+              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center cursor-pointer">
                 SẢN PHẨM <span className="ml-1">&#8250;</span>
               </button>
 
@@ -100,7 +104,7 @@ const Header = () => {
 
             {/* Dropdown: Tin tức */}
             <div className="relative group">
-              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center">
+              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center cursor-pointer">
                 TIN TỨC <span className="ml-1">&#8250;</span>
               </button>
               <div className="absolute left-0 mt-2 w-60 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">

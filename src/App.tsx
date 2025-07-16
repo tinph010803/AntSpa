@@ -13,6 +13,7 @@ import LosingWeight from "./pages/LosingWeight";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
+import ShoppingCart from "./pages/ShoppingCart";
 function App() {
   return (
     <Routes>
@@ -30,6 +31,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<ShoppingCart />} />
+        
 
       </Route>
     </Routes>
