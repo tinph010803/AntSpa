@@ -29,8 +29,8 @@ const Header = () => {
                 <span className="hidden sm:inline">Tài khoản</span>
               </button>
               <div className="absolute right-0 mt-2 w-40 bg-white border border-yellow-400 rounded-sm shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <a href="#" className="block px-4 py-2 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100"> ĐĂNG KÝ </a>
-                <a href="#" className="block px-4 py-2 text-black font-semibold text-sm hover:bg-yellow-50"> ĐĂNG NHẬP </a>
+                <Link to="/register" className="block px-4 py-2 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100"> ĐĂNG KÝ </Link>
+                <Link to="/login" className="block px-4 py-2 text-black font-semibold text-sm hover:bg-yellow-50"> ĐĂNG NHẬP </Link>
               </div>
             </div>
 

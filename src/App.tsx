@@ -10,6 +10,9 @@ import ProductNatural from "./pages/ProductNatural"
 import FacialTreatment from "./pages/FacialTreatment";
 import ProductFullBody from "./pages/ProductFullBody";
 import LosingWeight from "./pages/LosingWeight";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import ProductDetail from "./pages/ProductDetail";
 function App() {
   return (
     <Routes>
@@ -24,6 +27,9 @@ function App() {
         <Route path="/products/facial-treatment" element={<FacialTreatment />} />
         <Route path="/products/body-whitening" element={<ProductFullBody />} />
         <Route path="/products/weight-loss" element={<LosingWeight />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
 
       </Route>
     </Routes>
