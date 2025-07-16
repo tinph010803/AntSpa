@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const Product = () => {
-  const [activeCategory, setActiveCategory] = useState("MỸ PHẨM THIÊN NHIÊN")
+  const [activeCategory, setActiveCategory] = useState("MỸ PHẨM THIÊN NHIÊN");
 
-  const categories = ["MỸ PHẨM THIÊN NHIÊN", "TRỊ LIỆU DA MẶT", "TẮM TRẮNG TOÀN THÂN", "GIẢM CÂN & GIẢM BÉO"]
+  const categories = [
+    "MỸ PHẨM THIÊN NHIÊN",
+    "TRỊ LIỆU DA MẶT",
+    "TẮM TRẮNG TOÀN THÂN",
+    "GIẢM CÂN & GIẢM BÉO",
+  ];
 
   const products = [
     {
@@ -35,19 +40,12 @@ const Product = () => {
       image: "https://bizweb.dktcdn.net/thumb/large/100/312/429/products/nuoc-tay-trang-a70aabd0-731b-47d8-8e5d-64e7bb1a08bc.jpg?v=1525614268307",
       discount: null,
     },
-  ]
-
-  // const scrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" })
-  // }
+  ];
 
   return (
     <section className="w-full py-16 bg-gray-50 relative">
-      
-     
-
       <div className="container mx-auto px-4">
-        {/* Header Section */}
+        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-yellow-500 mb-4">MỸ PHẨM THIÊN NHIÊN</h2>
           <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
@@ -55,48 +53,48 @@ const Product = () => {
           </p>
         </div>
 
-        {/* Category Filter Buttons */}
+        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all ${
-                activeCategory === category
-                  ? "bg-amber-800 text-white shadow-lg"
-                  : "bg-transparent border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-50"
-              }`}
+              className={`px-6 py-3 rounded-full font-medium text-sm transition-all ${activeCategory === category
+                ? "bg-amber-800 text-white shadow-lg"
+                : "bg-transparent border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-50"
+                }`}
             >
               {category}
             </button>
           ))}
         </div>
 
-        {/* Products Grid */}
+        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group relative"
             >
-              {/* Product Image */}
+              {/* Image */}
               <div className="relative">
                 <img
-                  src={product.image || "/placeholder.svg"}
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-64 object-cover"
                 />
                 {product.discount && (
-                  <div className="absolute top-4 right-4 bg-yellow-400 text-white px-3 py-1 rounded-full font-bold text-sm">
+                  <div className="absolute top-4 left-4 bg-yellow-400 text-white px-3 py-1 rounded-full font-bold text-sm">
                     {product.discount}
                   </div>
                 )}
               </div>
 
-              {/* Product Info */}
+              {/* Info */}
               <div className="p-4">
-                <h3 className="text-gray-800 font-medium text-sm mb-3 line-clamp-2 min-h-[40px]">{product.name}</h3>
-
+                <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2">
+                  {product.name}
+                </h3>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-600 font-bold text-lg">{product.price}</span>
                   {product.originalPrice && (
@@ -104,12 +102,32 @@ const Product = () => {
                   )}
                 </div>
               </div>
+
+              {/* Hover Button */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                <button className="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-3 shadow-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.3 5.6a1 1 0 00.98 1.4h11.64a1 1 0 00.98-1.2L17 13M9 21h.01M15 21h.01"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

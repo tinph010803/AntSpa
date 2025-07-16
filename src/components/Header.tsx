@@ -64,12 +64,36 @@ const Header = () => {
 
             {/* Dropdown: Sản phẩm */}
             <div className="relative group">
-              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center">SẢN PHẨM <span className="ml-1">&#8250;</span></button>
+              <button className="text-white font-medium hover:text-yellow-100 transition-colors flex items-center">
+                SẢN PHẨM <span className="ml-1">&#8250;</span>
+              </button>
+
               <div className="absolute left-0 mt-2 w-60 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="bg-white border border-yellow-400 rounded-sm shadow-lg">
-                  {["MỸ PHẨM THIÊN NHIÊN", "TRỊ LIỆU DA MẶT", "TẮ̂M TRắNG TOÀN THÂN", "GIẢM CÂN & GIẢM BÉO"].map((item, index) => (
-                    <a key={index} href="#" className="block px-4 py-3 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100 last:border-b-0">{item}</a>
-                  ))}
+                  <Link
+                    to="/products/natural-cosmetics"
+                    className="block px-4 py-3 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100"
+                  >
+                    MỸ PHẨM THIÊN NHIÊN
+                  </Link>
+                  <Link
+                    to="/products/facial-treatment"
+                    className="block px-4 py-3 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100"
+                  >
+                    TRỊ LIỆU DA MẶT
+                  </Link>
+                  <Link
+                    to="/products/body-whitening"
+                    className="block px-4 py-3 text-black font-semibold text-sm hover:bg-yellow-50 border-b border-yellow-100"
+                  >
+                    TẮM TRẮNG TOÀN THÂN
+                  </Link>
+                  <Link
+                    to="/products/weight-loss"
+                    className="block px-4 py-3 text-black font-semibold text-sm hover:bg-yellow-50"
+                  >
+                    GIẢM CÂN & GIẢM BÉO
+                  </Link>
                 </div>
               </div>
             </div>
