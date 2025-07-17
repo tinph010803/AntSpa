@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const suggestedProducts = [
   {
@@ -32,6 +32,8 @@ const suggestedProducts = [
 
 const ProductDetail = () => {
   const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -84,20 +86,30 @@ const ProductDetail = () => {
             <li>Hướng dẫn sử dụng: Có thể dùng trực tiếp hoặc pha với dầu nền để massage.</li>
             <li>Hạn sử dụng: ít nhất đến tháng 4/2019</li>
           </ul>
-
           <div className="flex gap-2 mt-6 items-center">
             <p className="font-semibold">Số lượng</p>
-            <button className="border px-3 py-1">-</button>
-            <span className="border px-4 py-1">1</span>
-            <button className="border px-3 py-1">+</button>
+            <button
+              className="border px-3 py-1 cursor-pointer"
+              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+            >
+              -
+            </button>
+            <span className="border px-4 py-1 min-w-[40px] text-center">{quantity}</span>
+            <button
+              className="border px-3 py-1 cursor-pointer"
+              onClick={() => setQuantity((prev) => prev + 1)}
+            >
+              +
+            </button>
           </div>
 
+
           <div className="flex gap-4 mt-6">
-            <button className="bg-[#ffbf00] hover:bg-[#f4b000] text-black px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px]">
+            <button className="bg-[#ffbf00] hover:bg-[#f4b000] text-black px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px] cursor-pointer">
               MUA NGAY
               <span className="text-sm font-normal mt-1">GIAO HÀNG TẠI NƠI</span>
             </button>
-            <button className="bg-[#4a2600] hover:bg-[#3b1f00] text-[#ffbf00] px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px]">
+            <button className="bg-[#4a2600] hover:bg-[#3b1f00] text-[#ffbf00] px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px] cursor-pointer">
               Hãy gọi
               <span className="text-sm font-normal mt-1">Liên hệ 1900 6750</span>
             </button>

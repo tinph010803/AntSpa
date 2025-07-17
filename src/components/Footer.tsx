@@ -1,7 +1,7 @@
 import { FaTwitter, FaFacebookF, FaPinterestP, FaGooglePlusG, FaInstagram, FaYoutube } from "react-icons/fa"
 
 const Footer = () => {
-  const navLinks = ["Trang chủ", "Sản phẩm", "Tin tức", "Giới thiệu", "Dịch vụ", "Liên hệ"]
+  const navLinks = ["TRANG CHỦ", "SẢN PHẨM", "TIN TỨC", "GIỚI THIỆU", "DỊCH VỤ", "LIÊN HỆ"]
 
   return (
     <footer className="w-full bg-gray-50 pt-16 relative overflow-hidden">
