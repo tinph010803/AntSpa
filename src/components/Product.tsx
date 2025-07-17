@@ -77,11 +77,10 @@ const Product = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all cursor-pointer ${
-                activeCategory === category
+              className={`px-6 py-3 rounded-full font-medium text-sm transition-all cursor-pointer ${activeCategory === category
                   ? "bg-amber-800 text-white shadow-lg"
                   : "bg-transparent border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-50"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -224,14 +223,14 @@ const Product = () => {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => handleQuantityChange(-1)}
-                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50"
+                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50 cursor-pointer"
                           >
                             −
                           </button>
                           <span className="w-8 text-center">{quantity}</span>
                           <button
                             onClick={() => handleQuantityChange(1)}
-                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50"
+                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50 cursor-pointer"
                           >
                             +
                           </button>
@@ -263,11 +262,12 @@ const Product = () => {
                   className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition-colors"
                   onClick={() => {
                     setShowModal(false)
-                    navigate("/cart")
+                    navigate("/checkout")
                   }}
                 >
                   Tiến hành đặt hàng →
                 </button>
+
               </div>
             </div>
           </div>
