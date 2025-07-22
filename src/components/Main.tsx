@@ -9,7 +9,7 @@ const Main = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: `url('/pictures/slider_1.webp')`,
+                        backgroundImage: `url('/pictures/slider_1.webp.png')`,
                     }}
                 ></div>
             </section>

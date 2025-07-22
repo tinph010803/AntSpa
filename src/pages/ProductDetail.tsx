@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Fragment } from 'react';
 
 const suggestedProducts = [
   {
@@ -33,6 +34,7 @@ const suggestedProducts = [
 const ProductDetail = () => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -64,7 +66,13 @@ const ProductDetail = () => {
       {/* Product Info */}
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="pl-8">
-          <img src={product.image} alt={product.name} className="w-[300px] mx-auto h-auto rounded shadow" />
+          <div className="w-[300px] mx-auto overflow-hidden rounded shadow cursor-pointer">
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="w-full h-auto transition-transform duration-300 hover:scale-110" 
+            />
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -86,29 +94,36 @@ const ProductDetail = () => {
             <li>Hướng dẫn sử dụng: Có thể dùng trực tiếp hoặc pha với dầu nền để massage.</li>
             <li>Hạn sử dụng: ít nhất đến tháng 4/2019</li>
           </ul>
-          <div className="flex gap-2 mt-6 items-center">
+          <div className="flex items-center gap-3 mt-6">
             <p className="font-semibold">Số lượng</p>
-            <button
-              className="border px-3 py-1 cursor-pointer"
-              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-            >
-              -
-            </button>
-            <span className="border px-4 py-1 min-w-[40px] text-center">{quantity}</span>
-            <button
-              className="border px-3 py-1 cursor-pointer"
-              onClick={() => setQuantity((prev) => prev + 1)}
-            >
-              +
-            </button>
+            <div className="flex border border-gray-300 rounded-sm overflow-hidden">
+              <button
+                className="w-10 h-10 text-lg flex items-center justify-center border-r border-gray-300 hover:bg-gray-100 cursor-pointer"
+                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+              >
+                −
+              </button>
+              <span className="w-10 h-10 flex items-center justify-center text-base">
+                {quantity}
+              </span>
+              <button
+                className="w-10 h-10 text-lg flex items-center justify-center border-l border-gray-300 hover:bg-gray-100 cursor-pointer"
+                onClick={() => setQuantity((prev) => prev + 1)}
+              >
+                +
+              </button>
+            </div>
           </div>
 
-
           <div className="flex gap-4 mt-6">
-            <button className="bg-[#ffbf00] hover:bg-[#f4b000] text-black px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px] cursor-pointer">
+            <button
+              className="bg-[#ffbf00] hover:bg-[#f4b000] text-black px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px] cursor-pointer"
+              onClick={() => setShowModal(true)}
+            >
               MUA NGAY
               <span className="text-sm font-normal mt-1">GIAO HÀNG TẠI NƠI</span>
             </button>
+
             <button className="bg-[#4a2600] hover:bg-[#3b1f00] text-[#ffbf00] px-8 py-4 rounded text-base font-bold flex flex-col items-center w-[200px] cursor-pointer">
               Hãy gọi
               <span className="text-sm font-normal mt-1">Liên hệ 1900 6750</span>
@@ -150,10 +165,16 @@ const ProductDetail = () => {
           {suggestedProducts.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded shadow hover:shadow-lg cursor-pointer overflow-hidden"
+              className="bg-white rounded shadow hover:shadow-lg cursor-pointer overflow-hidden transition-shadow duration-300"
               onClick={() => navigate(`/product/${item.id}`)}
             >
-              <img src={item.image} alt={item.name} className="w-full h-56 object-cover" />
+              <div className="overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.name} 
+                  className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110" 
+                />
+              </div>
               <div className="p-4">
                 <h3 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">{item.name}</h3>
                 <p className="text-yellow-600 font-bold">{item.price}</p>
@@ -162,7 +183,127 @@ const ProductDetail = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+          <div className="bg-white w-full max-w-4xl mx-4 rounded-lg shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold z-10 cursor-pointer"
+              onClick={() => setShowModal(false)}
+            >
+              ×
+            </button>
+
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <span className="text-gray-700">
+                  Bạn đã thêm <span className="text-red-500 font-medium">{product.name}</span> vào giỏ hàng
+                </span>
+              </div>
+
+              {/* Table sản phẩm */}
+              <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        SẢN PHẨM
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        ĐƠN GIÁ
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        SỐ LƯỢNG
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        THÀNH TIỀN
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white">
+                    <tr>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-4">
+                          <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded" />
+                          <div>
+                            <p className="font-medium text-gray-900">{product.name}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-gray-900">{product.price}</td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50 cursor-pointer"
+                          >
+                            −
+                          </button>
+                          <span className="w-8 text-center">{quantity}</span>
+                          <button
+                            onClick={() => setQuantity((prev) => prev + 1)}
+                            className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-gray-50 cursor-pointer"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 font-medium text-gray-900">
+                        {(
+                          parseInt(product.price.replace(/[^\d]/g, "")) * quantity
+                        ).toLocaleString("vi-VN")}đ
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Footer */}
+              <div className="flex justify-between items-center mb-6">
+                <p className="text-gray-600">Giao hàng trên toàn quốc</p>
+                <p className="text-lg font-medium">
+                  Thành tiền:{" "}
+                  <span className="text-yellow-600 font-bold">
+                    {(parseInt(product.price.replace(/[^\d]/g, "")) * quantity).toLocaleString("vi-VN")}đ
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-yellow-600 hover:text-yellow-700 font-medium flex items-center gap-1 cursor-pointer"
+                >
+                  ◀ Chọn sản phẩm khác
+                </button>
+                <button
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition-colors cursor-pointer"
+                  onClick={() => {
+                    setShowModal(false)
+                    navigate("/checkout")
+                  }}
+                >
+                  Tiến hành đặt hàng →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
     </div>
+    
+    
   );
 };
 
