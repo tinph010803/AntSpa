@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
 import ShoppingCart from "./pages/ShoppingCart";
 import CheckoutPage from "./pages/CheckoutPage";
+import ForgotPassword from "./pages/ForgotPassword";
 function App() {
   return (
     <Routes>
@@ -34,6 +35,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         
 
       </Route>

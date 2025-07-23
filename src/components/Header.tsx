@@ -2,10 +2,10 @@
 import { FaUser, FaShoppingCart, FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-
+import { useCart } from "../context/CartContext"
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false)
-
+  const { cartCount } = useCart()
   return (
     <header className="w-full">
       {/* Top Bar */}
@@ -24,7 +24,7 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
             {/* Account Dropdown */}
             <div className="relative group">
-              <button className="flex items-center gap-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-500 hover:text-white px-3 py-1 rounded font-medium transition-colors text-xs sm:text-sm">
+              <button className="flex items-center gap-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-500 hover:text-white px-3 py-1 rounded font-medium transition-colors text-xs sm:text-sm cursor-pointer">
                 <FaUser className="w-4 h-4" />
                 <span className="hidden sm:inline">Tài khoản</span>
               </button>
@@ -37,11 +37,13 @@ const Header = () => {
             {/* Cart */}
             <Link
               to="/cart"
-              className="flex items-center gap-1 bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 py-1 rounded font-medium transition-colors"
+              className="flex items-center gap-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-500 hover:text-white px-3 py-1 rounded font-medium transition-colors text-xs sm:text-sm cursor-pointer"
             >
               <FaShoppingCart className="w-4 h-4" />
               <span>Giỏ hàng</span>
-              <span className="bg-white text-orange-500 rounded-full px-1.5 py-0.5 text-xs font-bold min-w-[20px] text-center">0</span>
+              <span className="bg-white text-orange-500 rounded-full px-1.5 py-0.5 text-xs font-bold min-w-[20px] text-center">
+                {cartCount}
+              </span>
             </Link>
 
           </div>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { useCart } from "../context/CartContext"
 type ProductType = {
   id: number
   name: string
@@ -16,6 +16,7 @@ const Product = () => {
   const [showModal, setShowModal] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null)
   const [quantity, setQuantity] = useState(1)
+ const { addToCart } = useCart()
 
   const categories = ["MỸ PHẨM THIÊN NHIÊN", "TRỊ LIỆU DA MẶT", "TẮM TRẮNG TOÀN THÂN", "GIẢM CÂN & GIẢM BÉO"]
 
@@ -120,6 +121,7 @@ const Product = () => {
                   e.stopPropagation()
                   setSelectedProduct(product)
                   setQuantity(1)
+                  addToCart(1)
                   setShowModal(true)
                 }}
               >

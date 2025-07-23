@@ -76,16 +76,17 @@ const Contact = () => {
 
       {/* Google Maps */}
       <div className="w-full mt-10">
-        <iframe
-          title="Google Maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.417199388901!2d106.6494714748417!3d10.77875975917147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee72d38b369%3A0x7d01b9ddc1ff9179!2zMTc1IMSQ4buTLCBMw70gVGjGsMahbmcsIFTDom4gQsOsbmgsIEjDoCBO4buZaCBDaMOtIE1pbmggNzAwMDA!5e0!3m2!1svi!2s!4v1721097344019!5m2!1svi!2s"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+     <iframe
+  title="Google Maps"
+  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15676.83818873195!2d106.653887!3d10.775658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee72d38b369%3A0x7d01b9ddc1ff9179!2zNzAgTMO9IEdpYSwgUGjGsOG7nW5nIDE1LCBRdeG6rW4gMTEsIEjDoCBDaMOtbmgsIFZpZXRuYW0!5e0!3m2!1svi!2s!4v1721455120729!5m2!1svi!2s"
+  width="100%"
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
       </div>
     </div>
   );

@@ -107,38 +107,39 @@ const Advise = () => {
 
         {/* Partner Logos */}
         <div className="border-gray-200 pt-10">
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-60 py-8">
             {partners.map((partner, index) => (
               <img
                 key={index}
                 src={partner.logo || "/placeholder.svg"}
                 alt={partner.name}
-                className="h-10 max-w-[120px] object-contain grayscale hover:grayscale-0 transition"
+                className="h-20 max-w-[180px] object-contain grayscale hover:grayscale-0 transition"
               />
             ))}
           </div>
         </div>
+
       </div>
 
       {/* Floating Buttons */}
       <div className="fixed left-6 bottom-20 z-50 flex flex-col gap-3">
-        <button className="bg-yellow-400 text-white p-3 rounded-full shadow hover:bg-yellow-500">
+        <button className="bg-yellow-400 text-white p-3 rounded-full shadow hover:bg-yellow-500 cursor-pointer">
           <FaBell />
         </button>
-        <button className="bg-yellow-400 text-white p-3 rounded-full shadow hover:bg-yellow-500">
+        <button className="bg-yellow-400 text-white p-3 rounded-full shadow hover:bg-yellow-500 cursor-pointer">
           <FaPhone />
         </button>
       </div>
 
       <div className="fixed bottom-6 right-20 z-50">
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow flex items-center gap-2">
+        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow flex items-center gap-2 cursor-pointer">
           <FaComments />
           <span className="text-sm">Chat</span>
         </button>
       </div>
 
       <div className="fixed bottom-6 right-6 z-50">
-        <button onClick={scrollToTop} className="bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-full shadow">
+        <button onClick={scrollToTop} className="bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-full shadow cursor-pointer">
           <FaArrowUp />
         </button>
       </div>
