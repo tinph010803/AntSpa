@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { FaChevronDown } from "react-icons/fa" // Using FaChevronDown for dropdown arrows
+import { Link } from "react-router-dom"
 
 const CheckoutPage = () => {
     const [paymentMethod, setPaymentMethod] = useState("cod") // For payment radio button
@@ -177,7 +178,8 @@ const CheckoutPage = () => {
                         <button className="w-full mt-4 md:mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 md:py-3 rounded-md transition-colors text-base md:text-lg">
                             ĐẶT HÀNG
                         </button>
-                        <p className="text-xs md:text-sm mt-3 md:mt-4 text-center text-blue-600 hover:underline cursor-pointer">← Quay về giỏ hàng</p>
+                        {/* <button className="text-xs md:text-sm mt-3 md:mt-4 text-center text-blue-600 hover:underline cursor-pointer">← Quay về giỏ hàng</button> */}
+                        <Link to="/cart" className="text-xs md:text-sm mt-3 md:mt-4 text-center text-blue-600 hover:underline cursor-pointer">Quay về giỏ hàng</Link>
                     </div>
                 </div>
             </div>

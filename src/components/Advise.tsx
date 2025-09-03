@@ -7,7 +7,7 @@ const Advise = () => {
       title: "Cách làm sạch da mặt của các ngôi sao Hàn Quốc",
       excerpt:
         "Đối với người Hàn Quốc (và hầu hết các cường quốc làm đẹp khác trên thế giới), cách làm sạch da mặt là bước quan...",
-      image: "https://bizweb.dktcdn.net/thumb/small/100/312/429/articles/anh-3.jpg?v=1525526958343",
+      image: "https://bizweb.dktcdn.net/thumb/large/100/312/429/articles/anh-3.jpg?v=1525526958343",
       date: "05/05/2018",
       imagePosition: "top",
     },
@@ -16,7 +16,7 @@ const Advise = () => {
       title: "Nghệ thuật sử dụng serum – Bí quyết dưỡng da với Serum",
       excerpt:
         "Làn da thay đổi mỗi ngày tùy vào thời tiết, sinh hoạt, tâm trạng. Vậy tại sao chúng ta không điều chỉnh dưỡng da lại phải giữ nguyên?...",
-      image: "https://bizweb.dktcdn.net/thumb/small/100/312/429/articles/skincare.jpg?v=1603529813487",
+      image: "https://bizweb.dktcdn.net/thumb/large/100/312/429/articles/skincare.jpg?v=1603529813487",
       date: "05/05/2018",
       imagePosition: "bottom",
     },
@@ -25,7 +25,7 @@ const Advise = () => {
       title: "Các ngôi sao 'thời hơn' vào thương hiệu mỹ phẩm của mình ra sao?",
       excerpt:
         "Việc các ngôi sao cho ra đời các thương hiệu mỹ phẩm da trở nên phổ biến. Đặc biệt, một số thương hiệu 'đồng đầu'...",
-      image: "https://bizweb.dktcdn.net/thumb/small/100/312/429/articles/targettuesday-2-600x400.jpg?v=1525526822483",
+      image: "https://bizweb.dktcdn.net/thumb/large/100/312/429/articles/targettuesday-2-600x400.jpg?v=1525526822483",
       date: "05/05/2018",
       imagePosition: "top",
     },
@@ -34,7 +34,7 @@ const Advise = () => {
       title: "Cách tập luyện giữ dáng của nữ diệp viên Black Widow – Scarlett Johansson",
       excerpt:
         "Mỹ nhân Scarlett Johansson đã theo dõi chế độ tập luyện giữ dáng rất nghiêm khắc để có thể hóa thân thành...",
-      image: "https://bizweb.dktcdn.net/thumb/small/100/312/429/articles/05bd10c566c79826-600x400.jpg?v=1525526703690",
+      image: "https://bizweb.dktcdn.net/thumb/large/100/312/429/articles/05bd10c566c79826-600x400.jpg?v=1525526703690",
       date: "05/05/2018",
       imagePosition: "bottom",
     },

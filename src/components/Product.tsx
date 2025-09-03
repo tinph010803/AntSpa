@@ -261,7 +261,7 @@ const Product = () => {
                   ◀ Chọn sản phẩm khác
                 </button>
                 <button
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition-colors"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition-colors cursor-pointer"
                   onClick={() => {
                     setShowModal(false)
                     navigate("/checkout")
